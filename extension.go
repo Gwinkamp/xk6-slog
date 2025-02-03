@@ -3,7 +3,7 @@ package xk6slog
 import (
 	"fmt"
 
-	"github.com/dop251/goja"
+	"github.com/grafana/sobek"
 	"go.k6.io/k6/js/modules"
 )
 
@@ -15,7 +15,7 @@ type SlogExt struct{}
 
 // XLogger creates a new Logger instance with the given options.
 // Usage in k6 scripts: `const logger = new Logger(...);`
-func (b *SlogExt) XLogger(call goja.ConstructorCall, rt *goja.Runtime) *goja.Object {
+func (b *SlogExt) XLogger(call sobek.ConstructorCall, rt *sobek.Runtime) *sobek.Object {
 	var opts LoggerOpts
 
 	if len(call.Arguments) == 0 {
